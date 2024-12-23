@@ -1,15 +1,18 @@
 @import '../../../styles/breakpoints';
 @import '../../../styles/designtemplate';
 
-//Mobile
+// Mobile
 @media (max-width: $breakpoint-md) {
     header {
         flex-direction: column;
         align-items: center;
-        // color: $tertiary-color;
-
-    }
+        color: $tertiary-color !important;
     
+        span {
+            color: $tertiary-color !important;
+        }
+    }
+
     section {
         position: absolute;
         top: 0;
@@ -18,11 +21,20 @@
     }
 }
 
+// Desktop
 section {
-    background-image: url('../../../assets/images/background.jpg');
+    background-image: url('../../../assets/images/background.webp');
     background-size: cover;  // Permet de couvrir tout l'écran sans déformation
     background-position: center;  // Centrer l'image
     background-repeat: no-repeat;  // Evite que l'image se répète
     height: 100vh;  // Assure que l'image couvre toute la hauteur de l'écran
     margin: 0;  // Evite les marges par défaut du body
+}
+
+header {
+    color: $primary-color;
+    padding-bottom: unset;
+    span {
+        color: $primary-color;
+    }
 }
