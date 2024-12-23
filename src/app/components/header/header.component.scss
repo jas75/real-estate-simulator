@@ -1,0 +1,9 @@
+@import '../../../styles/breakpoints';
+
+
+@media (max-width: $breakpoint-md) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+  }
