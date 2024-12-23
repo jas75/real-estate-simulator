@@ -1,0 +1,24 @@
+@import '../styles/breakpoints';
+@import '../styles/designtemplate';
+
+// Desktop
+@media (min-width: $breakpoint-md) {
+    .background-picture {
+        // position: absolute;
+        top: 65px !important;
+    }
+}
+
+.background-picture {
+    background-color: $secondary-color;
+    background-image: url('../assets/images/background.webp');
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    height: 100vh; 
+    margin: 0;  
+    z-index: -1;
+    position: absolute ;
+    width: 100%;
+    top: 0;
+}

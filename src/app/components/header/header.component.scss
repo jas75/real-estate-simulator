@@ -13,22 +13,6 @@
         }
     }
 
-    section {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: -1;
-    }
-}
-
-// Desktop
-section {
-    background-image: url('../../../assets/images/background.webp');
-    background-size: cover;  // Permet de couvrir tout l'écran sans déformation
-    background-position: center;  // Centrer l'image
-    background-repeat: no-repeat;  // Evite que l'image se répète
-    height: 100vh;  // Assure que l'image couvre toute la hauteur de l'écran
-    margin: 0;  // Evite les marges par défaut du body
 }
 
 header {
