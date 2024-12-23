@@ -1,9 +1,11 @@
 @import '../../../styles/breakpoints';
+@import '../../../styles/designtemplate';
 
-
+//Mobile
 @media (max-width: $breakpoint-md) {
     header {
         flex-direction: column;
         align-items: center;
+        // color: $tertiary-color;
     }
 }
