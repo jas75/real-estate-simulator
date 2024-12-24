@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+// $primary: #ff5722; // Nouvelle couleur pour btn-primary
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
-@import 'styles/breakpoints';
 @import 'styles/designtemplate';
+@import 'styles/breakpoints';
+@import 'bootstrap/scss/bootstrap';
 
 body {
     font-family: "Poppins", serif;

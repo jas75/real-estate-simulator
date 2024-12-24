@@ -6,19 +6,19 @@
     header {
         flex-direction: column;
         align-items: center;
-        color: $tertiary-color !important;
+        color: $tertiary !important;
     
         span {
-            color: $tertiary-color !important;
+            color: $tertiary !important;
         }
     }
 
 }
 
 header {
-    color: $primary-color;
+    color: $primary;
     padding-bottom: unset;
     span {
-        color: $primary-color;
+        color: $primary;
     }
 }
