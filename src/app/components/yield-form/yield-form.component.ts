@@ -79,18 +79,10 @@ export class YieldFormComponent {
 
     const annualRent = monthlyRent * 12;
 
-    console.log('annualRent')
-    console.log(annualRent)
-    console.log('commission1')
-    console.log(commission1)
-
-    console.log('annualCharges')
-    console.log(annualCharges)
-
-    const pd: number = parseInt(annualCharges, 10)
-    const netIncomeYear1 = annualRent - (commission1 + pd);
-    const netIncomeYear2 = annualRent - (commission2 + pd);
-    const netIncomeYear3 = annualRent - (commission3 + pd);
+    const parsedAnnuelCharges: number = parseInt(annualCharges, 10)
+    const netIncomeYear1 = annualRent - (commission1 + parsedAnnuelCharges);
+    const netIncomeYear2 = annualRent - (commission2 + parsedAnnuelCharges);
+    const netIncomeYear3 = annualRent - (commission3 + parsedAnnuelCharges);
 
     const netIncomeMonthly1 = netIncomeYear1 / 12;
     const netIncomeMonthly2 = netIncomeYear2 / 12;
@@ -99,28 +91,6 @@ export class YieldFormComponent {
     const annualYield1 = (netIncomeYear1 / purchasePrice) * 100;
     const annualYield2 = (netIncomeYear2 / purchasePrice) * 100;
     const annualYield3 = (netIncomeYear3 / purchasePrice) * 100;
-
-
-    console.log('netIncomeYear1')
-    console.log(netIncomeYear1)
-
-    console.log('netIncomeMonthly1')
-    console.log(netIncomeMonthly1)
-
-    console.log('annualYield1')
-    console.log(annualYield1)
-
-    console.log('purchasePrice')
-    console.log(purchasePrice)
-
-    console.log('monthlyRent')
-    console.log(monthlyRent)
-
-    console.log('annualCharges')
-    console.log(annualCharges)
-
-    console.log('annualRent - (commission1 + annualCharges) = ');
-console.log(annualRent - (commission1 + pd));
 
     return {
         year1: {
