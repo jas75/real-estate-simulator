@@ -71,35 +71,35 @@
       </form>
 
     <div class="col-md-6 ">
-        <div class="card-group text-center">
+        <div *ngIf="yieldResult" class="card-group text-center">
             <div class="card bg-secondary">
               <div class="card-body p-4">
                 <h5 class="card-title">Year 1</h5>
                 <p class="card-text"><small class="text-body-secondary">Net monthly income</small></p>
-                <h2 class="card-text">1.230€</h2>
+                <h2 class="card-text">{{yieldResult.year1.netIncomeMonthly | number:'1.0-2':'en-US'}}€</h2>
                 <br>
                 <p class="card-text"><small class="text-body-secondary">Return on investment</small></p>
-                <h2 class="card-text">6%</h2>
+                <h2 class="card-text">{{yieldResult.year1.annualYield | number:'1.0-2':'en-US'}}%</h2>
               </div>
             </div>
             <div class="card bg-secondary">
               <div class="card-body p-4">
                 <h5 class="card-title">Year 2</h5>
                 <p class="card-text"><small class="text-body-secondary">Net monthly income</small></p>
-                <h2 class="card-text">1.230€</h2>
+                <h2 class="card-text">{{yieldResult.year2.netIncomeMonthly | number:'1.0-2':'en-US'}}€</h2>
                 <br>
                 <p class="card-text"><small class="text-body-secondary">Return on investment</small></p>
-                <h2 class="card-text">6%</h2>
+                <h2 class="card-text">{{yieldResult.year2.annualYield | number:'1.0-2':'en-US'}}%</h2>
               </div>
             </div>
             <div class="card bg-secondary">
               <div class="card-body p-4">
                 <h5 class="card-title">Year 3</h5>
                 <p class="card-text"><small class="text-body-secondary">Net monthly income</small></p>
-                <h2 class="card-text">1.230€</h2>
+                <h2 class="card-text">{{yieldResult.year3.netIncomeMonthly | number:'1.0-2':'en-US'}}€</h2>
                 <br>
                 <p class="card-text"><small class="text-body-secondary">Return on investment</small></p>
-                <h2 class="card-text">6%</h2>
+                <h2 class="card-text">{{yieldResult.year3.annualYield | number:'1.0-2':'en-US'}}%</h2>
               </div>
             </div>
           </div>
