@@ -1,23 +1,75 @@
 
 <div class="row">
-    <div class="col-md-6">
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Purchase price">
+    <form class="col-md-6" [formGroup]="yieldForm" (ngSubmit)="onSubmit()">
+      
+        <div class="has-validation form-floating mb-3">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="floatingInput" 
+            placeholder="Purchase price"
+            formControlName="purchasePrice"
+            [ngClass]="{'is-invalid': yieldForm.controls['purchasePrice'].invalid && yieldForm.controls['purchasePrice'].touched}"
+            >
             <label for="floatingInput">Purchase price</label>
+            
+            <small 
+            class="invalid-feedback"
+            *ngIf="yieldForm.controls['purchasePrice'].errors?.['pattern']">The price must be a valid number.</small>
+
+            <small 
+            class="invalid-feedback"
+            *ngIf="yieldForm.controls['purchasePrice'].errors?.['required']">The price is required.</small>
+
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Monthly rent">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="floatingPassword" 
+            placeholder="Monthly rent"
+            formControlName="monthlyRent"
+            [ngClass]="{'is-invalid': yieldForm.controls['monthlyRent'].invalid && yieldForm.controls['monthlyRent'].touched}"
+            >
             <label for="floatingPassword">Monthly rent</label>
+
+            <small 
+            class="invalid-feedback"
+            *ngIf="yieldForm.controls['monthlyRent'].errors?.['pattern']">The rent must be a valid number.</small>
+
+            <small 
+            class="invalid-feedback"
+            *ngIf="yieldForm.controls['monthlyRent'].errors?.['required']">The rent is required.</small>
         </div>
         <div class="form-floating mb-4">
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Annual rental charges">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="floatingPassword" 
+            placeholder="Annual rental charges"
+            formControlName="annualCharges"
+            [ngClass]="{'is-invalid': yieldForm.controls['annualCharges'].invalid && yieldForm.controls['annualCharges'].touched}"
+            >
             <label for="floatingPassword">Annual rental charges</label>
+
+            <small 
+            class="invalid-feedback"
+            *ngIf="yieldForm.controls['annualCharges'].errors?.['pattern']">The charges must be a valid number.</small>
+
+            <small 
+            class="invalid-feedback"
+            *ngIf="yieldForm.controls['annualCharges'].errors?.['required']">The charges are required.</small>
+
         </div>
-        <button class="btn btn-primary text-white btn-lg">
+        <button 
+        class="btn btn-primary text-white btn-lg" 
+        type="submit"
+        [disabled]="yieldForm.invalid"
+        >
             Calculate <fa-icon [icon]="faCoffee"></fa-icon>
 
         </button>
-    </div>
+      </form>
 
     <div class="col-md-6 ">
         <div class="card-group text-center">
