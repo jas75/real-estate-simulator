@@ -3,6 +3,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-yield-form',
@@ -20,7 +21,8 @@ export class YieldFormComponent {
   
   
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.yieldForm= this.fb.group({
       purchasePrice: ['',[
@@ -40,7 +42,7 @@ export class YieldFormComponent {
   }
 
   public onSubmit() {
-    console.log(this.yieldForm)
+    this.toastr.error('Hello world!', 'Toastr fun!');
   }
 
 
