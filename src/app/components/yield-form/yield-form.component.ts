@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { YieldResult } from '../../models/yield.model';
+import { YieldService } from '../../services/yield/yield.service';
 
 @Component({
   selector: 'app-yield-form',
@@ -15,7 +16,6 @@ import { YieldResult } from '../../models/yield.model';
 })
 export class YieldFormComponent {
 
-  
   public faCoffee = faCoffee;
   
   public yieldForm: FormGroup;
@@ -23,7 +23,8 @@ export class YieldFormComponent {
   
   constructor(
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private yieldService: YieldService
   ) {
     this.yieldForm= this.fb.group({
       purchasePrice: ['',[
@@ -64,50 +65,11 @@ export class YieldFormComponent {
         control?.markAsTouched({ onlySelf: true });
       });
     } else {
-      this.yieldResult = this.calculateYield(
+      this.yieldResult = this.yieldService.calculateYield(
         this.yieldForm.get('purchasePrice')?.value,
         this.yieldForm.get('monthlyRent')?.value,
         this.yieldForm.get('annualCharges')?.value
       )
     }
   }
-
-  public calculateYield(purchasePrice: number, monthlyRent: number, annualCharges: string): YieldResult {
-    const commission1 = (monthlyRent * 12) * 0.30;
-    const commission2 = (monthlyRent * 12) * 0.25;
-    const commission3 = (monthlyRent * 12) * 0.20;
-
-    const annualRent = monthlyRent * 12;
-
-    const parsedAnnuelCharges: number = parseInt(annualCharges, 10)
-    const netIncomeYear1 = annualRent - (commission1 + parsedAnnuelCharges);
-    const netIncomeYear2 = annualRent - (commission2 + parsedAnnuelCharges);
-    const netIncomeYear3 = annualRent - (commission3 + parsedAnnuelCharges);
-
-    const netIncomeMonthly1 = netIncomeYear1 / 12;
-    const netIncomeMonthly2 = netIncomeYear2 / 12;
-    const netIncomeMonthly3 = netIncomeYear3 / 12;
-
-    const annualYield1 = (netIncomeYear1 / purchasePrice) * 100;
-    const annualYield2 = (netIncomeYear2 / purchasePrice) * 100;
-    const annualYield3 = (netIncomeYear3 / purchasePrice) * 100;
-
-    return {
-        year1: {
-            netIncomeMonthly: netIncomeMonthly1,
-            annualYield: annualYield1
-        },
-        year2: {
-            netIncomeMonthly: netIncomeMonthly2,
-            annualYield: annualYield2
-        },
-        year3: {
-            netIncomeMonthly: netIncomeMonthly3,
-            annualYield: annualYield3
-        }
-    };
-}
-
-
-
 }
