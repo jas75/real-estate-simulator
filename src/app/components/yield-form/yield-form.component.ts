@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { YieldResult } from '../../models/yield.model';
 import { YieldService } from '../../services/yield/yield.service';
+import { SharedService } from '../../services/shared/shared.service';
 
 @Component({
   selector: 'app-yield-form',
@@ -24,7 +25,8 @@ export class YieldFormComponent {
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private yieldService: YieldService
+    private yieldService: YieldService,
+    private sharedService: SharedService
   ) {
     this.yieldForm= this.fb.group({
       purchasePrice: ['',[
@@ -70,6 +72,7 @@ export class YieldFormComponent {
         this.yieldForm.get('monthlyRent')?.value,
         this.yieldForm.get('annualCharges')?.value
       )
+      this.sharedService.updateData(this.yieldResult);
     }
   }
 }
