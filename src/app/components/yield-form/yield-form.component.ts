@@ -42,7 +42,27 @@ export class YieldFormComponent {
   }
 
   public onSubmit() {
-    this.toastr.error('Hello world!', 'Toastr fun!');
+    if (this.yieldForm.invalid) {
+      this.toastr.clear();
+      const fieldNames: { [key: string]: string } = {
+        purchasePrice: 'Purchase price',
+        monthlyRent: 'Monthly rent',
+        annualCharges: 'Annual rental charges',
+      };
+      Object.keys(this.yieldForm.controls).forEach(field => {
+        const control = this.yieldForm.get(field);
+        const readableName = fieldNames[field] || field; 
+        if (control?.invalid) {
+          if (control.errors?.['required']) {
+            this.toastr.error(`${readableName} is required.`, 'Form error');
+          }
+          if (control.errors?.['pattern']) {
+            this.toastr.error(`${readableName} must be a valid number.`, 'Form error');
+          }
+        }
+        control?.markAsTouched({ onlySelf: true });
+      });
+    }
   }
 
 
