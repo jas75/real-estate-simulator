@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faChartBar, faChartColumn, faChartSimple, faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -17,7 +17,7 @@ import { SharedService } from '../../services/shared/shared.service';
 })
 export class YieldFormComponent {
 
-  public faCoffee = faCoffee;
+  public faCoffee = faChartSimple;
   
   public yieldForm: FormGroup;
   public yieldResult!: YieldResult;
