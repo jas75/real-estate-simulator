@@ -1,6 +1,5 @@
 
-<div class="row">
-    <form class="col-md-6" [formGroup]="yieldForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="yieldForm" (ngSubmit)="onSubmit()">
       
         <div class="has-validation form-floating mb-3">
             <input 
@@ -69,4 +68,3 @@
 
         </button>
       </form>
-</div>
