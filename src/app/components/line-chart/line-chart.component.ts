@@ -42,7 +42,6 @@ export class LineChartComponent implements OnInit, OnDestroy {
   }
 
   public createChart(){
-    console.log('create chart')
     if (
       this.chart &&
       Object.keys(this.yieldResult).length > 0
