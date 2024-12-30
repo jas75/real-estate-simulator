@@ -26,10 +26,8 @@ export class LineChartComponent implements OnInit, OnDestroy {
   ) {}
 
   public ngOnInit() {
-    console.log('Line Chart Init')
     this.sharedService.data$.pipe(takeUntil(this.unsubscribe)).subscribe((data: YieldResult) => {
       this.yieldResult = data;
-      console.log(this.yieldResult)
       if (Object.keys(this.yieldResult).length > 0) {
         this.createChart();
       }

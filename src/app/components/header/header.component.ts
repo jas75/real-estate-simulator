@@ -12,4 +12,8 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons';
 export class HeaderComponent {
 
   public faHouse = faHouse;
+
+  public refresh() {
+    window.location.reload();
+  }
 }
